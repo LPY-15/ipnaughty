@@ -1,0 +1,204 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link type="text/css" href="{% static 'main_app/css/main.css' %}" rel="stylesheet">
+  <script src="{% static 'main_app/js/main.js' %}" defer></script>
+
+  <title>NEON — Digital Store</title>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <div class="logo">NEON<span>®</span></div>
+
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="../shop/">Shop</a></li>
+      <li><a href="#">Collections</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+
+    <div class="cart">
+      <a href="../cart/">🛒 Cart 
+        <span id="cartCount">0</span>
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <section class="hero">
+
+      <div>
+        <div class="tag">✦ NEW DROP — 2026 COLLECTION</div>
+
+        <h1>
+          Stuff you
+          <span>actually</span>
+          want.
+        </h1>
+
+        <p>
+          Discover weird, beautiful and ridiculously useful products
+          designed for people who don't want their stuff to look boring.
+        </p>
+
+        <div class="buttons">
+          <button class="btn primary" onclick="scrollToProducts()">
+
+            Explore store →
+          </button> 
+
+          <button class="btn secondary">
+            View collection
+          </button>
+        </div>
+      </div>
+
+
+      <div class="product-stage">
+
+        <div class="glow"></div>
+
+        <div class="product">
+
+          <div class="product-top">
+            <span>NEON / 01</span>
+            <span>✦</span>
+          </div>
+
+          <div class="product-icon">
+            🎧
+          </div>
+
+          <div>
+            <div class="product-name">
+              Void Headphones
+            </div>
+
+            <div class="price">
+              €149.00
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="products-section" id="products">
+
+      <div class="section-head">
+        <div>
+          <p>CURATED FOR YOU</p>
+          <h2>Trending now.</h2>
+        </div>
+
+        <p>View all →</p>
+      </div>
+
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-image">⌨️</div>
+
+          <div class="card-content">
+            <h3>Cyber Keyboard</h3>
+            <p>Mechanical · RGB · Wireless</p>
+
+            <button class="buy" onclick="addToCart()">
+              Add to cart · €129
+            </button>
+          </div>
+        </article>
+
+
+        <article class="card">
+          <div class="card-image">🎧</div>
+
+          <div class="card-content">
+            <h3>Void Headphones</h3>
+            <p>ANC · 40h battery · Spatial audio</p>
+
+            <button class="buy" onclick="addToCart()">
+              Add to cart · €149
+            </button>
+          </div>
+        </article>
+
+
+        <article class="card">
+          <div class="card-image">⌚</div>
+
+          <div class="card-content">
+            <h3>Pulse Watch</h3>
+            <p>Minimal design · Smart tracking</p>
+
+            <button class="buy" onclick="addToCart()">
+              Add to cart · €199
+            </button>
+          </div>
+        </article>
+
+
+        <article class="card">
+          <div class="card-image">📷</div>
+
+          <div class="card-content">
+            <h3>MiniCam X</h3>
+            <p>4K · Pocket-sized · Stabilized</p>
+
+            <button class="buy" onclick="addToCart()">
+              Add to cart · €249
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROMO -->
+
+    <section class="banner">
+
+      <h2>Good taste starts here.</h2>
+
+      <p>
+        Get 15% off your first order. No weird conditions.
+      </p>
+
+      <button class="btn primary" onclick="subscribe()">
+        Get the discount ✦
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    <span>© 2026 NEON Store</span>
+    <span>Made for the internet ✦</span>
+  </footer>
+
+</body>
+</html>

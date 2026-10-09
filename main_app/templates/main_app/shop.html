@@ -1,0 +1,587 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link type="text/css" href="{% static 'main_app/css/shop.css' %}" rel="stylesheet">
+
+  <title>NEON — Shop</title>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <a href="/" class="logo">
+      NEON<span>®</span>
+    </a>
+
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="{% url 'shop' %}" class="active">Shop</a></li>
+      <li><a href="#">Collections</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+
+    <a href="{% url 'cart' %}" class="cart">
+      🛒 Cart
+      <span id="cartCount">0</span>
+    </a>
+  </nav>
+
+
+  <!-- SHOP HEADER -->
+
+  <main>
+
+    <section class="shop-hero">
+
+      <div>
+        <p class="eyebrow">NEON MARKET / 2026</p>
+
+        <h1>
+          Find your
+          <span>next thing.</span>
+        </h1>
+
+        <p class="hero-description">
+          Tech, gadgets and beautifully unnecessary things
+          for people with questionable amounts of taste.
+        </p>
+      </div>
+
+      <div class="hero-decoration">
+        <span>✦</span>
+        <span>01</span>
+      </div>
+
+    </section>
+
+
+    <!-- SHOP CONTROLS -->
+
+    <section class="shop-controls">
+
+      <div class="categories">
+
+        <button class="category active" data-category="all">
+          All
+        </button>
+
+        <button class="category" data-category="audio">
+          Audio
+        </button>
+
+        <button class="category" data-category="desk">
+          Desk
+        </button>
+
+        <button class="category" data-category="wearables">
+          Wearables
+        </button>
+
+        <button class="category" data-category="camera">
+          Cameras
+        </button>
+
+      </div>
+
+
+      <div class="shop-tools">
+
+        <div class="search">
+          <span>⌕</span>
+
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search products..."
+          >
+        </div>
+
+        <select id="sortProducts">
+          <option value="default">Sort: Featured</option>
+          <option value="low">Price: Low → High</option>
+          <option value="high">Price: High → Low</option>
+          <option value="name">Name: A → Z</option>
+        </select>
+
+      </div>
+
+    </section>
+
+
+    <!-- PRODUCT COUNT -->
+
+    <div class="results-bar">
+      <span id="productCount">8 products</span>
+
+      <span class="view-label">
+        CURATED FOR YOU ✦
+      </span>
+    </div>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="product-grid" id="productGrid">
+
+
+      <!-- PRODUCT 1 -->
+
+      <article
+        class="product-card"
+        data-category="desk"
+        data-name="Cyber Keyboard"
+        data-price="129"
+      >
+
+        <div class="product-image purple">
+          <span>⌨️</span>
+
+          <div class="product-badge">
+            BESTSELLER
+          </div>
+
+          <button class="quick-view">
+            Quick view
+          </button>
+        </div>
+
+        <div class="product-info">
+
+          <div>
+            <p class="product-category">
+              DESK / 01
+            </p>
+
+            <h2>Cyber Keyboard</h2>
+
+            <p class="description">
+              Mechanical · RGB · Wireless
+            </p>
+          </div>
+
+          <div class="product-bottom">
+
+            <strong>€129</strong>
+
+            <button
+              class="add"
+              onclick="addToCart()"
+            >
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 2 -->
+
+      <article
+        class="product-card"
+        data-category="audio"
+        data-name="Void Headphones"
+        data-price="149"
+      >
+
+        <div class="product-image pink">
+          <span>🎧</span>
+
+          <div class="product-badge new">
+            NEW
+          </div>
+
+          <button class="quick-view">
+            Quick view
+          </button>
+        </div>
+
+        <div class="product-info">
+
+          <div>
+            <p class="product-category">
+              AUDIO / 02
+            </p>
+
+            <h2>Void Headphones</h2>
+
+            <p class="description">
+              ANC · 40h battery · Spatial audio
+            </p>
+          </div>
+
+          <div class="product-bottom">
+
+            <strong>€149</strong>
+
+            <button
+              class="add"
+              onclick="addToCart()"
+            >
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 3 -->
+
+      <article
+        class="product-card"
+        data-category="wearables"
+        data-name="Pulse Watch"
+        data-price="199"
+      >
+
+        <div class="product-image cyan">
+          <span>⌚</span>
+
+          <div class="product-badge">
+            TRENDING
+          </div>
+
+          <button class="quick-view">
+            Quick view
+          </button>
+        </div>
+
+        <div class="product-info">
+
+          <div>
+            <p class="product-category">
+              WEARABLE / 03
+            </p>
+
+            <h2>Pulse Watch</h2>
+
+            <p class="description">
+              Minimal design · Smart tracking
+            </p>
+          </div>
+
+          <div class="product-bottom">
+
+            <strong>€199</strong>
+
+            <button
+              class="add"
+              onclick="addToCart()"
+            >
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 4 -->
+
+      <article
+        class="product-card"
+        data-category="camera"
+        data-name="MiniCam X"
+        data-price="249"
+      >
+
+        <div class="product-image orange">
+          <span>📷</span>
+
+          <button class="quick-view">
+            Quick view
+          </button>
+        </div>
+
+        <div class="product-info">
+
+          <div>
+            <p class="product-category">
+              CAMERA / 04
+            </p>
+
+            <h2>MiniCam X</h2>
+
+            <p class="description">
+              4K · Pocket-sized · Stabilized
+            </p>
+          </div>
+
+          <div class="product-bottom">
+
+            <strong>€249</strong>
+
+            <button
+              class="add"
+              onclick="addToCart()"
+            >
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 5 -->
+
+      <article
+        class="product-card"
+        data-category="desk"
+        data-name="Neon Mouse"
+        data-price="79"
+      >
+
+        <div class="product-image green">
+          <span>🖱️</span>
+
+          <button class="quick-view">
+            Quick view
+          </button>
+        </div>
+
+        <div class="product-info">
+
+          <div>
+            <p class="product-category">
+              DESK / 05
+            </p>
+
+            <h2>Neon Mouse</h2>
+
+            <p class="description">
+              Ultra-light · RGB · 26K DPI
+            </p>
+          </div>
+
+          <div class="product-bottom">
+
+            <strong>€79</strong>
+
+            <button
+              class="add"
+              onclick="addToCart()"
+            >
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 6 -->
+
+      <article
+        class="product-card"
+        data-category="audio"
+        data-name="AirPods Zero"
+        data-price="119"
+      >
+
+        <div class="product-image blue">
+          <span>🎵</span>
+
+          <div class="product-badge new">
+            NEW
+          </div>
+
+          <button class="quick-view">
+            Quick view
+          </button>
+        </div>
+
+        <div class="product-info">
+
+          <div>
+            <p class="product-category">
+              AUDIO / 06
+            </p>
+
+            <h2>AirPods Zero</h2>
+
+            <p class="description">
+              Wireless · Low latency · 30h
+            </p>
+          </div>
+
+          <div class="product-bottom">
+
+            <strong>€119</strong>
+
+            <button
+              class="add"
+              onclick="addToCart()"
+            >
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 7 -->
+
+      <article
+        class="product-card"
+        data-category="wearables"
+        data-name="Core Ring"
+        data-price="179"
+      >
+
+        <div class="product-image violet">
+          <span>💍</span>
+
+          <button class="quick-view">
+            Quick view
+          </button>
+        </div>
+
+        <div class="product-info">
+
+          <div>
+            <p class="product-category">
+              WEARABLE / 07
+            </p>
+
+            <h2>Core Ring</h2>
+
+            <p class="description">
+              Titanium · Health tracking · NFC
+            </p>
+          </div>
+
+          <div class="product-bottom">
+
+            <strong>€179</strong>
+
+            <button
+              class="add"
+              onclick="addToCart()"
+            >
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 8 -->
+
+      <article
+        class="product-card"
+        data-category="camera"
+        data-name="Pocket Lens"
+        data-price="89"
+      >
+
+        <div class="product-image red">
+          <span>🔭</span>
+
+          <button class="quick-view">
+            Quick view
+          </button>
+        </div>
+
+        <div class="product-info">
+
+          <div>
+            <p class="product-category">
+              CAMERA / 08
+            </p>
+
+            <h2>Pocket Lens</h2>
+
+            <p class="description">
+              Wide angle · Macro · Magnetic
+            </p>
+          </div>
+
+          <div class="product-bottom">
+
+            <strong>€89</strong>
+
+            <button
+              class="add"
+              onclick="addToCart()"
+            >
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+    </section>
+
+
+    <!-- NO RESULTS -->
+
+    <div id="noResults" class="no-results">
+      <div>⌁</div>
+      <h2>Nothing found.</h2>
+      <p>
+        Try another search or explore a different category.
+      </p>
+    </div>
+
+
+    <!-- PROMO -->
+
+    <section class="shop-banner">
+
+      <div>
+        <p>FIRST ORDER</p>
+
+        <h2>
+          15% off.
+          <span>Because why not?</span>
+        </h2>
+      </div>
+
+      <button onclick="subscribe()">
+        Get NEON15 ✦
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    <span>© 2026 NEON Store</span>
+    <span>Made for the internet ✦</span>
+  </footer>
+
+
+</body>
+</html>

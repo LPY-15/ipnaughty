@@ -1,0 +1,213 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link type="text/css" href="{% static 'main_app/css/cart.css' %}" rel="stylesheet">
+  <script src="{% static 'main_app/js/cart.js' %}" defer></script>
+
+  <title>NEON — Your Cart</title>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <a href="/" class="logo">
+      NEON<span>®</span>
+    </a>
+
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/#products">Shop</a></li>
+      <li><a href="#">Collections</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+
+    <a href="{% url 'cart' %}" class="cart">
+      🛒 Cart
+      <span id="cartCount">0</span>
+    </a>
+  </nav>
+
+
+  <!-- CART -->
+
+  <main class="cart-page">
+
+    <div class="cart-header">
+      <div>
+        <p class="eyebrow">YOUR SELECTION</p>
+        <h1>Your cart.</h1>
+        <p class="subtitle">
+          Everything you actually want, all in one place.
+        </p>
+      </div>
+
+      <a href="/" class="continue-shopping">
+        ← Continue shopping
+      </a>
+    </div>
+
+
+    <section class="cart-layout">
+
+      <!-- CART ITEMS -->
+
+      <div class="cart-items">
+
+        <!-- ITEM 1 -->
+
+        <article class="cart-item">
+
+          <div class="item-image">
+            🎧
+          </div>
+
+          <div class="item-info">
+            <div>
+              <p class="item-category">AUDIO / 01</p>
+              <h2>Void Headphones</h2>
+              <p class="item-description">
+                ANC · 40h battery · Spatial audio
+              </p>
+            </div>
+
+            <button class="remove">
+              Remove
+            </button>
+          </div>
+
+          <div class="item-actions">
+
+            <div class="quantity">
+              <button onclick="changeQuantity(-1)">−</button>
+              <span id="quantity">1</span>
+              <button onclick="changeQuantity(1)">+</button>
+            </div>
+
+            <strong>€149.00</strong>
+
+          </div>
+
+        </article>
+
+
+        <!-- ITEM 2 -->
+
+        <article class="cart-item">
+
+          <div class="item-image">
+            ⌨️
+          </div>
+
+          <div class="item-info">
+            <div>
+              <p class="item-category">DESK / 02</p>
+              <h2>Cyber Keyboard</h2>
+              <p class="item-description">
+                Mechanical · RGB · Wireless
+              </p>
+            </div>
+
+            <button class="remove">
+              Remove
+            </button>
+          </div>
+
+          <div class="item-actions">
+
+            <div class="quantity">
+              <button>−</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+
+            <strong>€129.00</strong>
+
+          </div>
+
+        </article>
+
+
+        <!-- EMPTY CART -->
+
+        <div class="empty-cart" style="display: none;">
+          <div>🛒</div>
+          <h2>Your cart is empty.</h2>
+          <p>
+            Looks like you haven't found anything weird enough yet.
+          </p>
+
+          <a href="/" class="shop-button">
+            Explore the store →
+          </a>
+        </div>
+
+      </div>
+
+
+      <!-- ORDER SUMMARY -->
+
+      <aside class="summary">
+
+        <p class="summary-label">ORDER SUMMARY</p>
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong>€278.00</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Shipping</span>
+          <strong>Free</strong>
+        </div>
+
+        <div class="discount">
+          <span>✦</span>
+          <div>
+            <strong>NEON15</strong>
+            <small>15% discount applied</small>
+          </div>
+        </div>
+
+        <div class="summary-row discount-row">
+          <span>Discount</span>
+          <strong>− €41.70</strong>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="total">
+          <span>Total</span>
+          <strong>€236.30</strong>
+        </div>
+
+        <button class="checkout">
+          Checkout →
+        </button>
+
+        <p class="secure">
+          🔒 Secure checkout · Free shipping
+        </p>
+
+      </aside>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    <span>© 2026 NEON Store</span>
+    <span>Made for the internet ✦</span>
+  </footer>
+
+</body>
+</html>
